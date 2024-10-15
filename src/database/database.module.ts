@@ -42,9 +42,9 @@ function getDefaultSequelizeConfig(
       },
     },
     pool: {
-      max: 10, // Установите подходящее значение для вашего приложения
+      max: 10,
       min: 0,
-      acquire: 30000, // Увеличьте время ожидания подключения
+      acquire: 30000, 
       idle: 10000,
     },
   };
