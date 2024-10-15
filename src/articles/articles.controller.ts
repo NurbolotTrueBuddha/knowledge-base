@@ -61,8 +61,6 @@ export class ArticlesController {
   }
 
   private isAuthorizedUser(): boolean {
-    // Логика проверки авторизации пользователя
-    // Например, проверка наличия пользователя в запросе
-    return !!request['user'];
+    return !!Request['user'];
   }
 }
