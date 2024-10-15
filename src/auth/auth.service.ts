@@ -1,19 +1,22 @@
 import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { createHmac } from 'node:crypto';
 import { USER_MODEL } from 'src/constants';
 import { Users } from 'src/database/models/knowledge';
 
 @Injectable()
 export class AuthService {
-  constructor(private readonly jwtService: JwtService,
+  constructor(
+    private readonly jwtService: JwtService,
     @Inject(USER_MODEL) private readonly user_table: typeof Users,
-
   ) {}
 
-  async getUser(body: {email: string, password: string}): Promise<{ token: string }> {
-
-    const user = await this.user_table.findOne({where: {email: body.email}});
+  async getUser(body: {
+    email: string;
+    password: string;
+  }): Promise<{ token: string }> {
+    const user = await this.user_table.findOne({
+      where: { email: body.email },
+    });
 
     if (user.password !== body.password) {
       throw new UnauthorizedException('Sorry bro... wrong pass)');
