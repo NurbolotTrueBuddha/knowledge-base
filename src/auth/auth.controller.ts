@@ -13,7 +13,6 @@ export class AuthController {
   }
 
   @UseGuards(HttpAuthGuard)
-  @ApiBearerAuth()
   @Post('test')
   async test(@Req() req: { user: { id: string } }) {
     return req.user;

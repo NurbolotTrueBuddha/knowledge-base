@@ -19,7 +19,6 @@ export class AuthService {
       throw new UnauthorizedException('Sorry bro... wrong pass)');
     }
 
-
     const token = this.jwtService.sign(user, {
       secret: process.env.JWT_SECRET,
     });
