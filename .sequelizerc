@@ -1,0 +1,10 @@
+var path = require('path');
+
+if (!process.env.DATABASE_FOLDER) throw new Error('Need to provide DATABASE_FOLDER environment variable');
+
+module.exports = {
+  config: path.resolve(__dirname, 'sequelize', process.env.DATABASE_FOLDER, 'config', 'config.js'),
+  'migrations-path': path.resolve(__dirname, 'sequelize', process.env.DATABASE_FOLDER, 'migrations'),
+  'models-path': path.resolve(__dirname, 'sequelize', process.env.DATABASE_FOLDER, 'models'),
+  'seeders-path': path.resolve(__dirname, 'sequelize', process.env.DATABASE_FOLDER, 'seeders'),
+};
